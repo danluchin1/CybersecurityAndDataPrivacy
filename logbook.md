@@ -7,3 +7,4 @@
 | 21.01.2026 | 1.5 | Intro to Booking system project  | Participated in the meeting |
 | 21.01.2026 | 5 | Module 1, 2 and 3 from the Introduction to Cybersecurity CISCO course  | Learned and passed the quizzes from Module 1, 2 and 3 from the Introduction to Cybersecurity CISCO course |
 | 22.01.2026 | 3 | Module 4, 5 and Final Exam from the Introduction to Cybersecurity CISCO course  | Learned and passed the quizzes from Module 4, 5 and the Final Exam from the Introduction to Cybersecurity CISCO course |
+| 28.01.2026 | 4 | Introduction to PortSwigger | Checked out the intro material, created a PortSwigger account, explored the environment, read the material from the SQL Injection and Authentication topics, have done 3 labs (2 from the SQL Injection and one from the Authentication), and installed Burp Suite to make a brute-force attack in order to pass the Username enumeration via different responses lab |
