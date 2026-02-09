@@ -12,3 +12,4 @@
 | 30.01.2026 | 2.5 | Introduction to PortSwigger | I have wrote the reflection for each lab I have completed (6 in total). I have updated the logbook file from my GitHub repo with the work I have done. |
 | 31.01.2026 | 2 | The Booking system project → Phase 1 → Part 1 | I have checked the intro material for the task, installed ZAP and checked how it works. |
 | 01.02.2026 | 2 | The Booking system project → Phase 1 → Part 1 | I have done the Automated ZAP Scan, I have generated the ZAP report as a markdown file and added to the GitHub repo, and wrote my own report based on the Automated ZAP Scan. |
+| 08.02.2026 | 0.5 | The Booking system project → Phase 1 → Part 2 | I have downloaded the docker compose file for Phase 1/ Part 2 web app. Run the Automated ZAP Penetration Test and generated the Zap Report Round 2 file. |
