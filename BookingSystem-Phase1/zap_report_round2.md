@@ -10,7 +10,7 @@ ZAP by [Checkmarx](https://checkmarx.com/).
 | High | 0 |
 | Medium | 1 |
 | Low | 0 |
-| Informational | 0 |
+| Informational | 1 |
 
 
 
@@ -19,18 +19,19 @@ ZAP by [Checkmarx](https://checkmarx.com/).
 
 | Level | Reason | Site | Description | Statistic |
 | --- | --- | --- | --- | --- |
-| Low | Warning |  | ZAP warnings logged - see the zap.log file for details | 1    |
-| Info | Informational | http://localhost:8002 | Percentage of responses with status code 2xx | 22 % |
-| Info | Informational | http://localhost:8002 | Percentage of responses with status code 3xx | 7 % |
-| Info | Informational | http://localhost:8002 | Percentage of responses with status code 4xx | 76 % |
-| Info | Informational | http://localhost:8002 | Percentage of endpoints with content type application/javascript | 23 % |
+| High | Exceeded High |  | Percentage of memory used | 96    |
+| Low | Warning |  | ZAP warnings logged - see the zap.log file for details | 46    |
+| Info | Informational | http://localhost:8002 | Percentage of responses with status code 2xx | 44 % |
+| Info | Informational | http://localhost:8002 | Percentage of responses with status code 3xx | 40 % |
+| Info | Exceeded Low | http://localhost:8002 | Percentage of responses with status code 4xx | 14 % |
+| Info | Informational | http://localhost:8002 | Percentage of endpoints with content type application/javascript | 21 % |
 | Info | Informational | http://localhost:8002 | Percentage of endpoints with content type text/css | 7 % |
-| Info | Informational | http://localhost:8002 | Percentage of endpoints with content type text/html | 23 % |
-| Info | Informational | http://localhost:8002 | Percentage of endpoints with content type text/plain | 38 % |
+| Info | Informational | http://localhost:8002 | Percentage of endpoints with content type text/html | 21 % |
+| Info | Informational | http://localhost:8002 | Percentage of endpoints with content type text/plain | 42 % |
 | Info | Informational | http://localhost:8002 | Percentage of endpoints with method GET | 92 % |
 | Info | Informational | http://localhost:8002 | Percentage of endpoints with method POST | 7 % |
-| Info | Informational | http://localhost:8002 | Count of total endpoints | 13    |
-| Info | Informational | http://localhost:8002 | Percentage of slow responses | 7 % |
+| Info | Informational | http://localhost:8002 | Count of total endpoints | 14    |
+| Info | Informational | http://localhost:8002 | Percentage of slow responses | 1 % |
 
 
 
@@ -40,6 +41,7 @@ ZAP by [Checkmarx](https://checkmarx.com/).
 | Name | Risk Level | Number of Instances |
 | --- | --- | --- |
 | Absence of Anti-CSRF Tokens | Medium | 1 |
+| User Agent Fuzzer | Informational | Systemic |
 
 
 
@@ -114,5 +116,67 @@ Check the HTTP Referer header to see if the request originated from an expected 
 #### WASC Id: 9
 
 #### Source ID: 3
+
+### [ User Agent Fuzzer ](https://www.zaproxy.org/docs/alerts/10104/)
+
+
+
+##### Informational (Medium)
+
+### Description
+
+Check for differences in response based on fuzzed User Agent (eg. mobile sites, access as a Search Engine Crawler). Compares the response statuscode and the hashcode of the response body with the original response.
+
+* URL: http://localhost:8002/register
+  * Node Name: `http://localhost:8002/register ()(birthdate,password,role,username)`
+  * Method: `POST`
+  * Parameter: `Header User-Agent`
+  * Attack: `Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)`
+  * Evidence: ``
+  * Other Info: ``
+* URL: http://localhost:8002/register
+  * Node Name: `http://localhost:8002/register ()(birthdate,password,role,username)`
+  * Method: `POST`
+  * Parameter: `Header User-Agent`
+  * Attack: `Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)`
+  * Evidence: ``
+  * Other Info: ``
+* URL: http://localhost:8002/register
+  * Node Name: `http://localhost:8002/register ()(birthdate,password,role,username)`
+  * Method: `POST`
+  * Parameter: `Header User-Agent`
+  * Attack: `Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1)`
+  * Evidence: ``
+  * Other Info: ``
+* URL: http://localhost:8002/register
+  * Node Name: `http://localhost:8002/register ()(birthdate,password,role,username)`
+  * Method: `POST`
+  * Parameter: `Header User-Agent`
+  * Attack: `Mozilla/5.0 (Windows NT 10.0; Trident/7.0; rv:11.0) like Gecko`
+  * Evidence: ``
+  * Other Info: ``
+* URL: http://localhost:8002/register
+  * Node Name: `http://localhost:8002/register ()(birthdate,password,role,username)`
+  * Method: `POST`
+  * Parameter: `Header User-Agent`
+  * Attack: `Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3739.0 Safari/537.36 Edg/75.0.109.0`
+  * Evidence: ``
+  * Other Info: ``
+
+Instances: Systemic
+
+
+### Solution
+
+
+
+### Reference
+
+
+* [ https://owasp.org/wstg ](https://owasp.org/wstg)
+
+
+
+#### Source ID: 1
 
 
