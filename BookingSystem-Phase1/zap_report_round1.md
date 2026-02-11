@@ -7,7 +7,7 @@ ZAP by [Checkmarx](https://checkmarx.com/).
 
 | Risk Level | Number of Alerts |
 | --- | --- |
-| High | 0 |
+| High | 1 |
 | Medium | 3 |
 | Low | 1 |
 | Informational | 0 |
@@ -40,6 +40,7 @@ ZAP by [Checkmarx](https://checkmarx.com/).
 
 | Name | Risk Level | Number of Instances |
 | --- | --- | --- |
+| SQL Injection | High | 1 |
 | Absence of Anti-CSRF Tokens | Medium | 1 |
 | Content Security Policy (CSP) Header Not Set | Medium | 2 |
 | Missing Anti-clickjacking Header | Medium | 2 |
@@ -50,6 +51,43 @@ ZAP by [Checkmarx](https://checkmarx.com/).
 
 ## Alert Detail
 
+
+
+### SQL Injection
+
+
+##### High (User Confirmed)
+
+### Description
+
+The application fails to sanitize the email or username parameter, allowing for a server-side crash or potential database manipulation when a single quote (') is injected.
+
+* URL: http://localhost:8001/register
+  * Node Name: `http://localhost:8001/register ()(birthdate,password,role,username)`
+  * Method: `POST`
+  * Parameter: ``
+  * Attack: ``
+  * Evidence: ``
+  * Other Info: ``
+
+
+Instances: 1
+
+### Solution
+
+Implement Parameterized Queries (Prepared Statements) for all database interactions.
+
+### Reference
+
+
+* [ https://owasp.org/www-community/attacks/SQL_Injection ](https://owasp.org/www-community/attacks/SQL_Injection)
+* [ https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html ](https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html)
+
+
+
+#### WASC Id: 19
+
+#### Source ID: 2
 
 
 ### [ Absence of Anti-CSRF Tokens ](https://www.zaproxy.org/docs/alerts/10202/)

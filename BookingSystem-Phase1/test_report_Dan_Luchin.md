@@ -73,10 +73,11 @@ ZAP results:
 
 | ID | Severity | Finding | Description | Evidence / Proof |
 |------|-----------|----------|--------------|------------------|
-| F-01 | 🟠 Medium | Absence of Anti-CSRF Tokens | The registration form does not include an anti-CSRF token, making it vulnerable to Cross-Site Request Forgery attacks where a victim could be forced to submit unintended requests. | ZAP alert for **/register**, evidence: `<form action="/register" method="POST">` |
-| F-02 | 🟠 Medium | Content Security Policy Header Not Set | The application does not define a Content-Security-Policy header, reducing protection against cross-site scripting and content injection attacks. | ZAP alerts for **/** and **/register** |
-| F-03 | 🟠 Medium | Missing Anti-clickjacking Header | The application does not set X-Frame-Options or CSP frame-ancestors, allowing the pages to be embedded in iframes and exposed to clickjacking attacks. | ZAP alerts for / and /register |
-| F-04 | 🟡 Low | X-Content-Type-Options Header Missing | The application does not set the X-Content-Type-Options header to nosniff, allowing browsers to perform MIME-type sniffing. | ZAP alerts affecting /, /register, and static resources |
+| F-01 | 🔴 High | SQL Injection (SQLi) | The registration form does not sanitize the email input before database processing. Injecting a single quote (') causes a server-side crash. | HTTP 500 Error returned when using ZAP Request Editor to inject ' into the username parameter. |
+| F-02 | 🟠 Medium | Absence of Anti-CSRF Tokens | The registration form does not include an anti-CSRF token, making it vulnerable to Cross-Site Request Forgery attacks where a victim could be forced to submit unintended requests. | ZAP alert for **/register**, evidence: `<form action="/register" method="POST">` |
+| F-03 | 🟠 Medium | Content Security Policy Header Not Set | The application does not define a Content-Security-Policy header, reducing protection against cross-site scripting and content injection attacks. | ZAP alerts for **/** and **/register** |
+| F-04 | 🟠 Medium | Missing Anti-clickjacking Header | The application does not set X-Frame-Options or CSP frame-ancestors, allowing the pages to be embedded in iframes and exposed to clickjacking attacks. | ZAP alerts for / and /register |
+| F-05 | 🟡 Low | X-Content-Type-Options Header Missing | The application does not set the X-Content-Type-Options header to nosniff, allowing browsers to perform MIME-type sniffing. | ZAP alerts affecting /, /register, and static resources |
 
 ---
 
