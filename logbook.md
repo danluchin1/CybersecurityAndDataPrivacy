@@ -17,3 +17,4 @@
 | 11.02.2026 | 1 | The Booking system project → Phase 1 → Part 1 (Update) | I have found a High Level Alert using ZAP. The new found alert is SQL Injection (SQLi). I have updated both, my report, and the ZAP report. |
 | 13.02.2026 | 0.5 | The Booking system project → Phase 2 | I have made manual/automated penetration tests with ZAP to the updated version of the app. Added the markdown file to the repo. |
 | 15.02.2026 | 4 | The Booking system project → Phase 2 | I have watched the video about cracking passwords, cracked 5 passwords using different methods, wrote the report and answered the questions from the task. |
+| 27.02.2026 | 4.5 | The Booking system project → Phase 3 | I have done manual browser tests to determine what access a gust, a reserver and an admin has and what access they are not supposed to have but have. Run Gobuster test to find hidden endpoints. |
