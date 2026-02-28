@@ -14,7 +14,7 @@ This report evaluates the access control mechanisms of the Phase 3 implementatio
 
 ### Endpoint discovery using Gobuster
 
-I have downloaded a common.txt file which has common potential names for testing
+To map the attack surface and find unlinked resources, I used **Gobuster** to perform directory enumeration against the root and the `/api` directory. I have downloaded a common.txt file which has common potential names for testing.
 
 **gobuster test against the `http://localhost:8004` path.**
 
@@ -128,16 +128,20 @@ Finished
 
 ## 3️⃣ Discovery & Vulnerability Findings
 
-### 📂 Discovered Endpoints (Gobuster/ZAP)
-* `/hidden-example-page`: [Describe what role can see this]
-* `/api/v1/internal`: [Describe behavior]
+### ZAP Security Alerts (Phase 3 Integration)
 
-### 🚨 Broken Access Control Issues (OWASP A01)
-* **Vulnerability:** [e.g., IDOR on /profile?id=XXX]
-* **Impact:** [e.g., Reserver A can see Reserver B's birthdate]
-* **Status:** [Confirmed/Fixed]
+**Persistent Cross-Site Scripting (XSS)**
+* ZAP identified XSS vulnerabilities in the resource management API.
+* Malicious scripts can be injected into resource descriptions, threatening all authenticated users.
+
+**Insecure Session Management**
+* Cookies lack the HttpOnly, Secure, and SameSite flags.
+* This makes session tokens vulnerable to XSS theft and interception over non-HTTPS connections.
+
+**Broken Access Control (OWASP A01)**
+* The system lacks server-side checks on the `/api/users` and `/resources` endpoints, allowing lower-privileged roles to perform high-privilege actions.
 
 ---
 
 ## 4️⃣ Conclusion
-[Briefly summarize if the system is GDPR compliant regarding Privacy by Design (PbD) principles based on your findings.]
+The current implementation of Phase 3 fails to meet the project's security specifications and GDPR compliance requirements. While authentication is required for some UI elements, the backend API is entirely unprotected, leading to massive data leaks of user and reservation information. The application does not follow "Privacy by Design" principles due to insecure session management and missing administrative access controls.
