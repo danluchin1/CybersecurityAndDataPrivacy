@@ -19,3 +19,6 @@
 | 15.02.2026 | 4 | The Booking system project → Phase 2 | I have watched the video about cracking passwords, cracked 5 passwords using different methods, wrote the report and answered the questions from the task. |
 | 27.02.2026 | 4.5 | The Booking system project → Phase 3 | I have done manual browser tests to determine what access a gust, a reserver and an admin has and what access they are not supposed to have but have. Run Gobuster test to find hidden endpoints. |
 | 28.02.2026 | 3.5 | The Booking system project → Phase 3 | I have finished with the auth_test_report.md file. Used ZAP to find hidden paths and make more penetration tests to find out how secure is the new version of the booking system project and added the zap report. |
+| 3.03.2026 | 3 | Lab Participation | Completed the lab with the assignments given. |
+| 12.03.2026 | 2 | The Booking system project → Phase 4 | I have checked the new version of the app and completed the GDPR_checklist.md file. |
+| 14.03.2026 | 2 | The Booking system project → Phase 4 | I have wrote the privacypolicy.md, termsofservice.md, and cookiepolicy.md files. |
